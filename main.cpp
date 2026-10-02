@@ -1,5 +1,29 @@
 #include <iostream>
+#include <string>
+#include <sstream>
 using namespace std;
+
+int readInt(const string& prompt)
+{
+    while (true)
+    {
+        cout << prompt;
+
+        string input;
+        cin >> input;
+
+        stringstream ss(input);
+        int value;
+        char extra;
+
+        if (ss >> value && !(ss >> extra))
+        {
+            return value;
+        }
+
+        cout << "Ошибка! Введите целое число.\n";
+    }
+}
 
 int main() {
     int выбор;
@@ -13,8 +37,9 @@ int main() {
         cout << "5. Административная ответственность\n";
         cout << "6. Протокол реагирования\n";
         cout << "0. Завершить ознакомление\n";
-        cout << "Выберите пункт: ";
-        cin >> выбор;
+
+        
+        выбор = readInt("Выберите пункт: ");
 
         switch (выбор) {
 
@@ -62,7 +87,7 @@ int main() {
             break;
 
         default:
-            cout << "\nОшибка! Выберите пункт от 0 до 4.\n";
+            cout << "\nОшибка! Выберите пункт от 0 до 6.\n";
         }
 
     } while (выбор != 0);
