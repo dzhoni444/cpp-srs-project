@@ -6,6 +6,8 @@
 #include <chrono>
 using namespace std;
 
+const int WEEKLY_HOURS = 20;
+
 int readInt(const string& prompt)
 {
     while (true)
@@ -266,11 +268,11 @@ int main() {
     do {
        ответ = readInt("\nСколько часов в неделю обязан отрабатывать лаборант на 0,5 ставки? ");
 
-        if (ответ != 20) {
+        if (ответ != WEEKLY_HOURS) {
             cout << "Неверно! Повторите ввод.\n";
         }
 
-    } while (ответ != 20);
+    } while (ответ != WEEKLY_HOURS);
 
     cout << "\nПравильно! Программа завершает работу.\n";
 
