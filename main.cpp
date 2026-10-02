@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <cstdlib>
 using namespace std;
 
 int readInt(const string& prompt)
@@ -10,7 +11,11 @@ int readInt(const string& prompt)
         cout << prompt;
 
         string input;
-        cin >> input;
+        if (!(cin >> input))
+{
+    cout << "\nВвод завершен. Программа будет остановлена.\n";
+    exit(0);
+}
 
         stringstream ss(input);
         int value;
